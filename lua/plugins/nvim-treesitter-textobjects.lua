@@ -47,7 +47,18 @@ return {
           -- and should return true or false
           include_surrounding_whitespace = true,
         },
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>a"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>A"] = "@parameter.inner",
+          },
+        },
+        -- TODO: move https://github.com/nvim-treesitter/nvim-treesitter-textobjects?tab=readme-ov-file#text-objects-move
       },
     })
   end
+
 }
