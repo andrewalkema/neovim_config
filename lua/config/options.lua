@@ -23,7 +23,6 @@ vim.opt.mouse = "a" --use mouse, nice for splits
 
 vim.opt.showmode = false --dont' show mode since mine statusline does it
 
-
 -- case insensitive searching UNLESS I have at least one cap, then real match
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -35,15 +34,15 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.scrolloff = 10
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 
 --Highlight yanked text
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,

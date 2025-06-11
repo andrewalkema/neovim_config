@@ -198,6 +198,7 @@ return {
         bashls = {},
         terraformls = {},
         powershell_es = {},
+        csharp_ls = {},
 
         lua_ls = {
           -- cmd = { ... },
