@@ -75,7 +75,7 @@ return {
       desc = "[F]ind current [W]ORD",
     },
     {
-      "<leader>,",
+      "<leader><leader>",
       function()
         require("fzf-lua").buffers()
       end,
@@ -93,7 +93,14 @@ return {
       function()
         require("fzf-lua").git_branches()
       end,
-      desc = "[F]ind [G]it branches",
+      desc = "[G]it [B]ranches",
+    },
+    {
+      "<leader>gs",
+      function()
+        require("fzf-lua").git_status()
+      end,
+      desc = "[G]it [S]tatus",
     },
     -- TODO: https://github.com/ibhagwan/fzf-lua?tab=readme-ov-file#commands
   },
