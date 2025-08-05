@@ -39,6 +39,8 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.scrolloff = 10
 vim.opt.cmdheight = 1
 
+vim.opt.winborder = "rounded"
+
 --Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
