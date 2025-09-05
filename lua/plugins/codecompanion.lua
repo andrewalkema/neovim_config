@@ -27,6 +27,7 @@ return {
     },
     diff = {
       provider = "mini_diff",
+      style = "inline",
     },
   },
   dependencies = {

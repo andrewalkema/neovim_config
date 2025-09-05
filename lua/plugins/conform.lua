@@ -4,6 +4,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       cs = { "csharpier" },
+      typescript = { "eslint" },
     },
     formatters = {
       csharpier = {
@@ -12,6 +13,11 @@ return {
           "format",
           "--write-stdout",
         },
+        to_stdin = true,
+      },
+      eslint = {
+        command = "eslint",
+        args = { "--fix", "--stdin", "--stdin-filename", "$FILENAME" },
         to_stdin = true,
       },
     },
