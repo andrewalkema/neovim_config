@@ -1,10 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter"
+    "nvim-treesitter/nvim-treesitter",
   },
   init = function()
-    local config = require'nvim-treesitter.configs';
+    local config = require("nvim-treesitter.configs")
     config.setup({
       textobjects = {
         select = {
@@ -32,9 +32,9 @@ return {
           -- and should return the mode ('v', 'V', or '<c-v>') or a table
           -- mapping query_strings to modes.
           selection_modes = {
-            ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V', -- linewise
-            ['@class.outer'] = '<c-v>', -- blockwise
+            ["@parameter.outer"] = "v", -- charwise
+            ["@function.outer"] = "V", -- linewise
+            ["@class.outer"] = "<c-v>", -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
           -- extended to include preceding or succeeding whitespace. Succeeding
@@ -56,9 +56,14 @@ return {
             ["<leader>A"] = "@parameter.inner",
           },
         },
+        move = {
+          enable = true,
+          goto_next_start = {
+            ["<leader>n"] = "@function.outer",
+          },
+        },
         -- TODO: move https://github.com/nvim-treesitter/nvim-treesitter-textobjects?tab=readme-ov-file#text-objects-move
       },
     })
-  end
-
+  end,
 }
