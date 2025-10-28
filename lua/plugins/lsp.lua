@@ -198,7 +198,6 @@ return {
         bashls = {},
         terraformls = {},
         powershell_es = {},
-        csharp_ls = {},
         yamlls = {
           settings = {
             yaml = {
