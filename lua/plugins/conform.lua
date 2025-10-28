@@ -5,6 +5,7 @@ return {
       lua = { "stylua" },
       cs = { "csharpier" },
       typescript = { "eslint" },
+      csproj = { "csharpier" },
     },
     formatters = {
       csharpier = {

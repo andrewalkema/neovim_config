@@ -33,8 +33,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+--vim.opt.list = true
+--vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.scrolloff = 10
 vim.opt.cmdheight = 1

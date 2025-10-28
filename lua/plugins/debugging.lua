@@ -25,7 +25,17 @@ return {
         },
       },
     },
-    config = function()
+    keys = {
+      {
+        "<leader>dw",
+        mode = { "n" },
+        function()
+          require("dapui").eval(nil, { enter = true })
+        end,
+        desc = "Add word under cursor to watches",
+      },
+    },
+    config = function(_, opts)
       local dapui = require("dapui")
       local dap = require("dap")
 
@@ -109,31 +119,78 @@ return {
       map("n", "<leader>dl", "<Cmd>lua require'dap'.run_last()<CR>", opts)
       map(
         "n",
-        "<leader>dt",
+        "<leader>td",
         "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
         { noremap = true, silent = true, desc = "debug nearest test" }
       )
     end,
   },
   {
+    "nsidorenco/neotest-vstest",
+    lazy = false,
+  },
+  {
     "nvim-neotest/neotest",
-    requires = {
-      {
-        "Issafalcon/neotest-dotnet",
-      },
-    },
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-  },
-  {
-    "Issafalcon/neotest-dotnet",
-    lazy = false,
-    dependencies = {
-      "nvim-neotest/neotest",
+    opts = {
+      adapters = {
+        require("neotest-vstest"),
+      },
+    },
+    keys = {
+      {
+        "<leader>tr",
+        mode = { "n" },
+        function()
+          require("neotest").run.run()
+        end,
+        desc = "Runs the closest test",
+      },
+      {
+        "<leader>ta",
+        mode = { "n" },
+        function()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end,
+        desc = "Run all tests in the file",
+      },
+      {
+        "<leader>tA",
+        mode = { "n" },
+        function()
+          require("neotest").run.run({ suite = true })
+        end,
+        desc = "Runs all unit tests in solution",
+      },
+      {
+        "<leader>ts",
+        mode = { "n" },
+        function()
+          require("neotest").summary.toggle()
+        end,
+        desc = "Toggles the test summary window",
+      },
+      {
+        "[n",
+        mode = { "n" },
+        function()
+          require("neotest").jump.prev({ status = "failed" })
+        end,
+        desc = "Jumps to previous failed test",
+      },
+      {
+        "]n",
+        mode = { "n" },
+        function()
+          require("neotest").jump.next({ status = "failed" })
+        end,
+        desc = "Jumps to next failed test",
+      },
     },
   },
   {
